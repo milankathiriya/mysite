@@ -1,0 +1,22 @@
+{
+  "name": "mysite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milankathiriya/mysite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/milankathiriya/mysite/issues"
+  },
+  "homepage": "https://github.com/milankathiriya/mysite",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}
