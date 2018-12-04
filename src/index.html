@@ -496,14 +496,14 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="name" placeholder="Name*" name="name">
+                                            <input type="text" class="form-control" id="name" placeholder="Name*" name="name" required="true">
                                         </div>
                                         <!--/.form-group-->
                                     </div>
                                     <!--/.col-->
                                     <div class="col-sm-6 col-xs-12">
                                         <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Email*" name="email">
+                                            <input type="email" class="form-control" id="email" placeholder="Email*" name="email" required="true">
                                         </div>
                                         <!--/.form-group-->
                                     </div>
@@ -513,7 +513,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required="true">
                                         </div>
                                         <!--/.form-group-->
                                     </div>
@@ -523,7 +523,7 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="8" id="comment" placeholder="Message" name="message"></textarea>
+                                            <textarea class="form-control" rows="8" id="comment" placeholder="Message" name="message" required="true"></textarea>
                                         </div>
                                         <!--/.form-group-->
                                     </div>
@@ -532,9 +532,9 @@
                                 <!--/.row-->
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="single-contact-btn">
-                                            <!-- <a class="contact-btn" href="#" role="button">submit</a> -->
-                                            <input class="contact-btn" type="submit" role="button" name="submit">submit</input>
+                                        <div>
+                                            <!-- <input class="form-control" type="submit" style="color: white; background-color: #CF00FF;">Submit</input> -->
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #CF00FF; border: 0;">Submit</button>
                                         </div>
                                         <!--/.single-single-contact-btn-->
                                     </div>
