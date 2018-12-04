@@ -18,5 +18,8 @@
   "homepage": "https://github.com/milankathiriya/mysite",
   "devDependencies": {
     "gh-pages": "^2.0.1"
+  },
+  "dependencies": {
+    "emailjs-com": "^2.3.2"
   }
 }
