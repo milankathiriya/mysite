@@ -39,11 +39,6 @@
 </head>
 
 <body>
-    <!-- start loader -->
-    <div class="spinner-wrapper">
-        <div class="spinner"></div>
-    </div>
-    <!-- end loader -->
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -647,20 +642,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!--Custom JS-->
     <script src="assets/js/custom.js"></script>
-    <script>
-    $(document).ready(function() {
-        //Preloader
-        $(window).on("load", function() {
-            preloaderFadeOutTime = 200;
-
-            function hidePreloader() {
-                var preloader = $('.spinner-wrapper');
-                preloader.fadeOut(preloaderFadeOutTime);
-            }
-            hidePreloader();
-        });
-    });
-    </script>
 </body>
 
 </html>
