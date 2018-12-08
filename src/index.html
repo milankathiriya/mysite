@@ -30,6 +30,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--responsive.css-->
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <style type="text/css">
+    #successDiv {
+        display: None;
+        margin-top: 0px;
+    }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -492,55 +498,64 @@
                     <div class="col-md-offset-1 col-md-5 col-sm-6">
                         <div class="single-contact-box">
                             <div class="contact-form">
-                                <form action="https://formspree.io/milankathiriya99@gmail.com" method="POST" />
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="name" placeholder="Name*" name="name" required="true">
+                                <form id="myform" action="" method="POST">
+                                    <!-- <form action="http://localhost:8000/contact/create/" method="POST"> -->
+                                    <!-- <form action="https://formspree.io/milankathiriya99@gmail.com" method="POST" /> -->
+                                    <div class="row">
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="name" placeholder="Name*" name="name" required="true">
+                                            </div>
+                                            <!--/.form-group-->
                                         </div>
-                                        <!--/.form-group-->
-                                    </div>
-                                    <!--/.col-->
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="email" class="form-control" id="email" placeholder="Email*" name="email" required="true">
+                                        <!--/.col-->
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="email" placeholder="Email*" name="email" required="true">
+                                            </div>
+                                            <!--/.form-group-->
                                         </div>
-                                        <!--/.form-group-->
+                                        <!--/.col-->
                                     </div>
-                                    <!--/.col-->
-                                </div>
-                                <!--/.row-->
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required="true">
+                                    <!--/.row-->
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" required="true">
+                                            </div>
+                                            <!--/.form-group-->
                                         </div>
-                                        <!--/.form-group-->
+                                        <!--/.col-->
                                     </div>
-                                    <!--/.col-->
-                                </div>
-                                <!--/.row-->
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="8" id="comment" placeholder="Message" name="message" required="true"></textarea>
+                                    <!--/.row-->
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="8" id="comment" placeholder="Message" name="message" required="true"></textarea>
+                                            </div>
+                                            <!--/.form-group-->
                                         </div>
-                                        <!--/.form-group-->
+                                        <!--/.col-->
                                     </div>
-                                    <!--/.col-->
-                                </div>
-                                <!--/.row-->
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div>
-                                            <!-- <input class="form-control" type="submit" style="color: white; background-color: #CF00FF;">Submit</input> -->
-                                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #CF00FF; border: 0;">Submit</button>
+                                    <!--/.row-->
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div>
+                                                <!-- <input class="form-control" type="submit" style="color: white; background-color: #CF00FF;">Submit</input> -->
+                                                <input id="formsubmit" type="submit" class="btn btn-primary btn-lg btn-block" style="background-color: #CF00FF; border: 0;" value="Submit"></input>
+                                            </div>
+                                            <!--/.single-single-contact-btn-->
                                         </div>
-                                        <!--/.single-single-contact-btn-->
+                                        <div class="col-sm-12">
+                                            <div id="successDiv" class="alert alert-success">
+                                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                                <strong>Thank You!</strong> For your accomodation.
+                                            </div>
+                                            <!--/.single-single-contact-btn-->
+                                        </div>
+                                        <!--/.col-->
                                     </div>
-                                    <!--/.col-->
-                                </div>
-                                <!--/.row-->
+                                    <!--/.row-->
                                 </form>
                                 <!--/form-->
                             </div>
@@ -598,6 +613,7 @@
         </div>
         <!--/.container-->
     </section>
+    <!-- <button onclick="getContact()">click me</button> -->
     <!--/.contact-->
     <!--contact end -->
     <!--footer-copyright start-->
@@ -642,6 +658,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!--Custom JS-->
     <script src="assets/js/custom.js"></script>
+    <script>
+    function getContact() {
+        fetch("http://milankathiriya.pythonanywhere.com/contact/")
+            .then(function(result) {
+                return result.json();
+                // return res;
+            })
+            .then(function(json) {
+                console.log(json)
+            })
+
+    }
+
+    $("#myform").submit(function() {
+        var vals = $(this).serialize();
+
+        $.ajax({
+            url: "http://milankathiriya.pythonanywhere.com/contact/create/",
+            method: "POST",
+            data: vals,
+            success: function(data) {
+                $("#myform")[0].reset();
+                $("#successDiv").css({ "display": "block", "margin-top": "10px" });
+            }
+        });
+
+        return false; // prevent from submit
+    });
+    </script>
 </body>
 
 </html>
