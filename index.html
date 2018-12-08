@@ -660,7 +660,7 @@
     <script src="assets/js/custom.js"></script>
     <script>
     function getContact() {
-        fetch("http://localhost:8000/contact/")
+        fetch("http://milankathiriya.pythonanywhere.com/contact/")
             .then(function(result) {
                 return result.json();
                 // return res;
@@ -675,7 +675,7 @@
         var vals = $(this).serialize();
 
         $.ajax({
-            url: "http://localhost:8000/contact/create/",
+            url: "http://milankathiriya.pythonanywhere.com/contact/create/",
             method: "POST",
             data: vals,
             success: function(data) {

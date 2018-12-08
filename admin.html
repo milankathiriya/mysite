@@ -108,13 +108,13 @@
     <script src="assets/js/custom.js"></script>
     <script>
     (function() {
-        fetch("http://localhost:8000/contact/")
+        fetch("http://milankathiriya.pythonanywhere.com/contact/")
             .then(function(result) {
                 return result.json();
                 // return res;
             })
             .then(function(json) {
-                console.log(json)
+                // console.log(json)
                 var dataSet = json;
                 var dataSetValues = [];
                 for (var i = 0; i < dataSet.length; i++) {
@@ -122,7 +122,7 @@
                     dataSetValues.push(dataSetV);
                 }
 
-                console.log(dataSetValues)
+                // console.log(dataSetValues)
                 $(document).ready(function() {
                     $('#example').DataTable({
                         data: dataSetValues,
